@@ -30,7 +30,7 @@ var resourcesFolder = path.dirname(asarFullFileName);
 console.log('\n\nASAR Package Unpacker\n\n');
 
 console.log('Unpacking archive');
-asar.extractAll(asarFullFileName, outputFolder + '\\temp');
+asar.extractAll(asarFullFileName, outputFolder + 'temp');
 
 //console.log('Deleting app.asar');
 //fs.unlinkSync(resourcesFolder + '\\app.asar');
