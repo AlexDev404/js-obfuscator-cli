@@ -30,7 +30,7 @@ var resourcesFolder = path.dirname(asarFullFileName);
 console.log('\n\nASAR Package Unpacker\n\n');
 
 console.log('Unpacking archive');
-asar.extractAll(asarFullFileName, outputFolder + '\\.temp');
+asar.extractAll(asarFullFileName, outputFolder + '\\');
 
 //console.log('Deleting app.asar');
 //fs.unlinkSync(resourcesFolder + '\\app.asar');
@@ -41,7 +41,7 @@ process.exit(0);
 
 /*
 
-recursive(outputFolder + '\\.temp', ['node_modules', 'app'], function (err, files) {
+recursive(outputFolder + '\\', ['node_modules', 'app'], function (err, files) {
     files.forEach(file => {
         if (path.extname(file) === '.js') {
             let contents = fs.readFileSync(file, 'utf8');
@@ -90,11 +90,11 @@ recursive(outputFolder + '\\.temp', ['node_modules', 'app'], function (err, file
         }
     });
     console.log('Packing asar archive');
-    asar.createPackage(outputFolder + '\\.temp', outputFullFileName)
+    asar.createPackage(outputFolder + '\\', outputFullFileName)
     .then(() => {
         console.log('Created secure asar archive');
         console.log('Deleting src directory');
-        rimraf(outputFolder + '\\.temp', function () {
+        rimraf(outputFolder + '\\', function () {
             console.log('Done! Have fun.');
         });
     });
